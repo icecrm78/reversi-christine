@@ -1,0 +1,27 @@
+{
+  "name": "reversi-works",
+  "version": "1.0.0",
+  "description": "reversi game to deploy",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icecrm78/reversi-christine.git"
+  },
+  "keywords": [
+    "reversi-christine"
+  ],
+  "author": "Christine Jinmin Eum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icecrm78/reversi-christine/issues"
+  },
+  "homepage": "https://github.com/icecrm78/reversi-christine#readme",
+  "dependencies": {
+    "node-static": "^0.7.11",
+    "socket.io": "^4.0.2"
+  }
+}
