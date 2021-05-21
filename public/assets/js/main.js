@@ -34,7 +34,6 @@ function makeInviteButton(){
     return newNode;
 }
 
-
 socket.on('join_room_response', (payload) => {
     if((typeof payload == 'undefined') || (payload === null)) {
         console.log('Server did not send a payload');
@@ -57,19 +56,19 @@ socket.on('join_room_response', (payload) => {
     let nodeA = $("<div></div>");
     nodeA.addClass("row");
     nodeA.addClass("align-items-center");
-    nodeA.addClass("socket_"+ payload.socket_id);
+    nodeA.addClass("socket_"+payload.socket_id);
     nodeA.hide();
 
     let nodeB = $("<div></div>");
     nodeB.addClass("col");
     nodeB.addClass("text-end");
-    nodeB.addClass("socket_"+ payload.socket_id);
-    nodeB.addClass('<h4>'+ payload.username+'<h4>');
+    nodeB.addClass("socket_"+payload.socket_id);
+    nodeB.addClass('<h4>'+payload.username+'<h4>');
 
     let nodeC = $("<div></div>");
     nodeC.addClass("col");
     nodeC.addClass("text-start");
-    nodeC.addClass("socket_"+ payload.socket_id);
+    nodeC.addClass("socket_"+payload.socket_id);
     let ButtonC = makeInviteButton();
     nodeC.append(ButtonC);
 
@@ -77,7 +76,7 @@ socket.on('join_room_response', (payload) => {
     nodeA.append(nodeC);
 
     $("#players").append(nodeA);
-    nodeA.show("fade", 1000)
+    nodeA.show("fade",1000);
 
     /* Announcing in the chat that someone has arrived */
     let newHTML = '<p class=\'join_room_response\'>' + payload.username + ' joined the ' + payload.room+'. (There are ' + payload.count + ' users in this room)</p>';
