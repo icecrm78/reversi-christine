@@ -23,6 +23,12 @@
       }  
     </style>
     
+    
+    
+    
+    
+    
+    
     <title>Reversi: Lobby</title>
   </head>
   
@@ -30,7 +36,7 @@
     <div class="container-fluid">
       <div class ="row m-3 headerrow">
         <div class ="col text-center">
-          <h3>Lobby</h3>
+          <h3 id="lobbyTitle">Lobby</h3>
         </div>
       </div>  
 
@@ -39,8 +45,11 @@
           <div class ="row align-items-center justify-content-center m-3">
             <div class="col-8">
               <div class="input-group">
-                <input type="text" class="form-control text-nowrap" id="chatMessage" placeholder="Enter your message" aria-lable="Enter your message to send to the chat room" />
-                <button type="submit" class="btn btn-primary text-nowrap" id="chatButton" onclick="sendChatMessage()">Send</button>
+                <input type="text" class="form-control text-nowrap" id="chatMessage" 
+                placeholder="Enter your message" 
+                aria-lable="Enter your message to send to the chat room" />
+                <button type="submit" class="btn btn-primary text-nowrap" id="chatButton" 
+                onclick="sendChatMessage()">Send</button>
               </div>
             </div>
           </div>
@@ -53,8 +62,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" 
     crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
-    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
+    integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" 
+    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" 
+    integrity="sha384-Dziy8F2VlJQLMShA6FHWNul/veM9bCkRUaLqr199K94ntO5QUrLJBEbYegdSkkqX" 
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" 
+    integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" 
+    crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
