@@ -43,6 +43,18 @@ socket.on('join_room_response', (payload) => {
         console.log(payload.message);
         return;
     } 
+
+
+    /* If we are being notified ourselves then ignore the message and return */
+    if (payload.socket_id === socket.id){
+        return;
+    }
+
+    let domElements = $('.socket_'+payload.socket_id);
+    /* If we are being repeat notified then return */
+    if (domElements.length !== 0 ){
+        return;
+    }
     /*
         <div class="row align-items-center">
             <div class="col text-end">
