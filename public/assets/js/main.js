@@ -56,14 +56,14 @@ socket.on('join_room_response', (payload) => {
     let nodeA = $("<div></div>");
     nodeA.addClass("row");
     nodeA.addClass("align-items-center");
-    nodeA.addClass("socket_"+payload.socket_id);
+    nodeA.addClass("socket_" + payload.socket_id);
     nodeA.hide();
 
     let nodeB = $("<div></div>");
     nodeB.addClass("col");
     nodeB.addClass("text-end");
-    nodeB.addClass("socket_"+payload.socket_id);
-    nodeB.addClass("><h4>"+payload.username+"</h4>");
+    nodeB.addClass("socket_" + payload.socket_id);
+    nodeB.addClass("<h4>" + payload.username + "</h4>");
 
     let nodeC = $("<div></div>");
     nodeC.addClass("col");
