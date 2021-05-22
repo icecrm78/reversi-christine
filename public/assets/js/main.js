@@ -108,8 +108,8 @@ socket.on('player_disconnected', (payload) => {
         return;
     }
 
-    let domElements = $('socket_'+payload.socket_id);
-    if(domElements.length !== 0)
+    let domElements = $('.socket_'+payload.socket_id);
+    if(domElements.length !== 0){
         domElements.hide("fade",500);
     }    
 
