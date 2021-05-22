@@ -43,7 +43,7 @@ socket.on('join_room_response', (payload) => {
         console.log(payload.message);
         return;
     } 
-    
+    /*
         <div class="row align-items-center">
             <div class="col text-end">
                 Christine
@@ -52,7 +52,7 @@ socket.on('join_room_response', (payload) => {
                 <button type="button" class="btn btn-primary">Invite</button>
             </div>
         </div>
-   
+   */
     let nodeA = $("<div></div>");
     nodeA.addClass("row");
     nodeA.addClass("align-items-center");
