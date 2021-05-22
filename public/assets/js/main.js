@@ -68,7 +68,7 @@ socket.on('join_room_response', (payload) => {
     let nodeC = $("<div></div>");
     nodeC.addClass("col");
     nodeC.addClass("text-start");
-    nodeC.addClass("socket_"+payload.socket_id);
+    nodeC.addClass("socket_" + payload.socket_id);
     let ButtonC = makeInviteButton();
     nodeC.append(ButtonC);
 
