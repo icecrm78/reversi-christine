@@ -43,7 +43,7 @@ socket.on('join_room_response', (payload) => {
         console.log(payload.message);
         return;
     } 
-
+    
         <div class="row align-items-center">
             <div class="col text-end">
                 Christine
