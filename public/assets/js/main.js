@@ -52,7 +52,7 @@ socket.on('join_room_response', (payload) => {
 
     let domElements = $('.socket_'+payload.socket_id);
     /* If we are being repeat notified then return */
-    if (domElements.length !== 0 ){
+    if (domElements.length !== 0) {
         return;
     }
     /*
