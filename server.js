@@ -190,7 +190,7 @@ or
         /* Make sure the invited player is present */ 
         io.in(room).allSockets().then((sockets) => {
             /* Invitee isn't in the room */
-            if ((typeof sockets == 'undefined') || (sockets === null) || !sockets.has(requsted_user)) {
+            if ((typeof sockets == 'undefined') || (sockets === null) || !sockets.has(socket)) {
                 response = {
                     result: 'fail',
                     message: 'the user that was invited is no longer in the room'
