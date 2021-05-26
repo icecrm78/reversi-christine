@@ -211,7 +211,7 @@ or
                     result: 'success',
                     socket_id: socket.id
                 }
-                socket.to(requsted_user).emit("invited", response);
+                socket.to(requested_user).emit("invited", response);
                 serverLog('invite command succeeded', JSON.stringify(response));
             }
         });
