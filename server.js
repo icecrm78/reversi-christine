@@ -146,7 +146,7 @@ or
     
     
     socket.on('invite', (payload) => {
-        serverLog('Server received a command','\'invite\'',JSON.stringify(payload));
+        serverLog('Server received a command', '\'invite\'', JSON.stringify(payload));
         /* Check that the data coming from the client is good */
         if ((typeof payload == 'undefined') || (payload === null)){
             response = {};
@@ -159,12 +159,12 @@ or
         let requested_user = payload.requested_user;
         let room = players[socket.id].room;
         let username = players[socket.id].username;
-        if ((typeof requested_user == 'undefined') || (requested_user === null) || (requsted_user === "")) {
+        if ((typeof requested_user == 'undefined') || (requested_user === null) || (requested_user === "")) {
             response = {
                 result: 'fail',
                 message: 'client did not request a valid user to invite to play'
             }
-                socket.emit('invite_response',response);
+                socket.emit('invite_response', response);
             serverLog('invite command failed', JSON.stringify(response));
             return;
         }
