@@ -321,7 +321,7 @@ socket.on('game_update', (payload) => {
                     graphic = "black_to_white.gif";
                     altTag = "white token";  
                 }
-                else 
+                else {
                     graphic = "error.gif";
                     altTag = "error";  
                 }
@@ -330,7 +330,7 @@ socket.on('game_update', (payload) => {
                 $('#'+row+'_'+column).html('<img class="img-fluid" src="assets/images/'+graphic+'?time='+t+'" alt="'+altTag+'" />');
             } 
         }
-
+    }
     old_board = board;
 })
 
