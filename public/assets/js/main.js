@@ -330,9 +330,9 @@ socket.on('game_update', (payload) => {
                 $('#'+row+'_'+column).html('<img class="img-fluid" src="assets/images/'+graphic+'?time='+t+'" alt="'+altTag+'" />');
             } 
         }
-    }
-    ,old_board = board
-,)
+
+    old_board = board;
+})
 
 /* Request to join the chat room */
 $(() => {
