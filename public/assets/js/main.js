@@ -331,8 +331,8 @@ socket.on('game_update', (payload) => {
             } 
         }
     }
-    old_board = board;
-})
+    ,old_board = board
+,)
 
 /* Request to join the chat room */
 $(() => {
