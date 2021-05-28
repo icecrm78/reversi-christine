@@ -505,9 +505,9 @@ function send_game_update(socket, game_id, message) {
     io.of('/').to(game_id).allSockets().then( (sockets)=> {
 
         const iterator = sockets[Symbol.iterator]();
-        if(sockets.size >=1) {
+        if(sockets.size >= 1) {
             let first = iterator.next().value;
-            if((games[game_id].player_white.socket != first) &&
+            if ((games[game_id].player_white.socket != first) &&
                (games[game_id].player_black.socket != first)) {
                /* Player does not have a color */
                if (games[game_id].player_white.socket === "") {
@@ -529,7 +529,7 @@ function send_game_update(socket, game_id, message) {
                }
             }           
         }
-        if(sockets.size >=2) {
+        if (sockets.size >= 2) {
             let second = iterator.next().value;
             if((games[game_id].player_white.socket != second) &&
                (games[game_id].player_black.socket != second)) {
