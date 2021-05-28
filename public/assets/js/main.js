@@ -191,7 +191,7 @@ socket.on('join_room_response', (payload) => {
     nodeA.show("fade",1000);
 
     /* Announcing in the chat that someone has arrived */
-    let newHTML = '<p class=\'join_room_response\'>' + payload.username + ' joined the ' + payload.room+'. (There are ' + payload.count + ' users in this room)</p>';
+    let newHTML = '<p class=\'join_room_response\'>' + payload.username + ' joined the chatroom. (There are ' + payload.count + ' users in this room)</p>';
     let newNode = $(newHTML);
     newNode.hide();
     $('#messages').prepend(newNode);
@@ -252,12 +252,14 @@ let old_board = [
     ['?','?','?','?','?','?','?','?'],
     ['?','?','?','?','?','?','?','?'],
     ['?','?','?','?','?','?','?','?'],
-    ['?','?','?','w','b','?','?','?'],
-    ['?','?','?','b','w','?','?','?'],
+    ['?','?','?','?','?','?','?','?'],
+    ['?','?','?','?','?','?','?','?'],
     ['?','?','?','?','?','?','?','?'],
     ['?','?','?','?','?','?','?','?'],
     ['?','?','?','?','?','?','?','?']
 ];
+
+let my_color = "";
 
 socket.on('game_update', (payload) => {
     if(( typeof payload == 'undefined') || (payload === null)) {
@@ -270,13 +272,24 @@ socket.on('game_update', (payload) => {
     } 
     
     let board = payload.game.board;
-    if(( typeof board == 'undefined') || (board === null)) {
+    if((typeof board == 'undefined') || (board === null)) {
         console.log('Server did not send a valid board to display');
         return;
     }
 
     /* Update my color */
+    if (socket.id === payload.game.player_white.socket) {
+        my_color = 'white';
+    }
+    else if (socket.id === payload.game.player_black.socket) {
+        my_color = 'black';
+    }
+    else {
+        window.location.href= 'lobby.html?username=' + username;
+        return;
+    }
 
+    $("#my_color").html('<h3 id="my_color">I am ' + my_color + '</h3>');
 
     /* Animate changes to the board */
     for (let row = 0; row < 8; row++) {

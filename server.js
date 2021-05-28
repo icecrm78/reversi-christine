@@ -105,7 +105,6 @@ or
             serverLog('join_room command failed', JSON.stringify(response));
             return;
         }
-
        
         /* Handle the command */
         socket.join(room);
@@ -128,6 +127,7 @@ or
                 }
                 /* Announce to everyone that is in the room, who else is in the room */
                 for (const member of sockets){
+                    let room = players[member.id].room;
                     response = {
                         result: 'success',
                         socket_id: member.id,
@@ -458,7 +458,7 @@ or
 
 
 
-/********************************/
+/******************************/
 /* Code related to game state */
 
 let games = [];
@@ -493,11 +493,6 @@ function create_new_game() {
 }
 
 function send_game_update(socket, game_id, message) {
-    /* Check to see if a game_id exists */
-    /* Make sure that only 2 people are in the room */
-    /* Assign this socket a color */
-    /* Send game update */
-    /* Check if the game is over */
 
     /* Check to see if a game with game_id exists */
     if ((typeof games[game_id] == 'undefined') || (games[game_id] === null)) {
@@ -505,18 +500,71 @@ function send_game_update(socket, game_id, message) {
         games[game_id] = create_new_game();
     }
 
-    /* Send game update */
-    let payload = {
-        result: 'success', 
-        game_id: game_id,
-        game: games[game_id],
-        message: message
-    }
-    io.of("/").to(game_id).emit('game_update', payload);
+    /* Make sure that only 2 people are in the room */
+    /* Assign this socket a color */
+    io.of('/').to(game_id).allSockets().then( (sockets)=> {
+
+        const iterator = sockets[Symbol.iterator]();
+        if(sockets.size >=1) {
+            let first = iterator.next().value;
+            if((games[game_id].player_white.socket != first) &&
+               (games[game_id].player_black.socket != first)) {
+               /* Player does not have a color */
+               if (games[game_id].player_white.socket === "") {
+                   /* This player should be white */
+                   console.log("White is assgined to: " + first);
+                   games[game_id].player_white.socket = first;
+                   games[game_id].player_white.username = players[first].username;
+               }
+               else if (games[game_id].player_black.socket === "") {
+                /* This player should be black */
+                console.log("Black is assgined to: " + first);
+                games[game_id].player_black.socket = first;
+                games[game_id].player_black.username = players[first].username;
+               }
+               else {
+                   /* This player should be kicked out */
+                   console.log("Kicking " + first + " out of game: " + game_id);
+                   io.in(first).socketsLeave([game_id]);
+               }
+            }           
+        }
+        if(sockets.size >=2) {
+            let second = iterator.next().value;
+            if((games[game_id].player_white.socket != second) &&
+               (games[game_id].player_black.socket != second)) {
+               /* Player does not have a color */
+               if (games[game_id].player_white.socket === "") {
+                   /* This player should be white */
+                   console.log("White is assgined to: " + second);
+                   games[game_id].player_white.socket = second;
+                   games[game_id].player_white.username = players[second].username;
+               }
+               else if (games[game_id].player_black.socket === "") {
+                /* This player should be black */
+                console.log("Black is assgined to: " + second);
+                games[game_id].player_black.socket = second;
+                games[game_id].player_black.username = players[second].username;
+               }
+               else {
+                   /* This player should be kicked out */
+                   console.log("Kicking " + second + " out of game: " + game_id);
+                   io.in(second).socketsLeave([game_id]);
+               }
+            }           
+        }
+        /* Send game update */
+        let payload = {
+            result: 'success', 
+            game_id: game_id,
+            game: games[game_id],
+            message: message
+        }
+        io.of("/").to(game_id).emit('game_update', payload);
+    })
+
+    /* Check if the game is over */
 }
-
-
-
 
 
 
