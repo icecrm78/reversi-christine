@@ -1,15 +1,19 @@
 body {
-    background-color: rgb(231, 224, 255);
+    background-color: rgb(255, 246, 206);
+    color:rgb(74, 69, 89);
   }
   .headerrow {
-    color:rgb(74, 69, 89) 
+    background-color: rgb(255, 255, 235);
+    color:rgb(160, 78, 255);       
+    font-style: oblique;
   }
   #messagePane {
-    background-color: rgb(245, 243, 255);      
+    background-color:rgb(255, 255, 235);
+    color:rgb(74, 69, 89);       
   }
   .join_room_response, 
   .left_room_response {
-    background-color: rgb(245, 243, 255);
+    background-color: rgb(255, 255, 235);
     color:rgb(74, 69, 89)
   }  
   .chat_message {
