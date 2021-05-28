@@ -339,8 +339,16 @@ socket.on('game_update', (payload) => {
                     altTag = "error";  
                 }
 
+                
                 const t = Date.now();
-                $('#'+row+'_'+column).html('<img class="img-fluid" src="assets/images/'+graphic+'?time='+t+'" alt="'+altTag+'" />');
+                $('#' + row + '_' +column).html('<img class="img-fluid" src="assets/images/'+graphic+'?time='+t+'" alt="'+altTag+'" />');
+
+                $('#' + row+ '_' + column).off('click');
+                if (board[row][column] === ' ') {
+                    $('#' + row + '_' + column).addClass('hovered_over');
+                }
+
+
             } 
         }
     }
