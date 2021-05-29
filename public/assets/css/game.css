@@ -33,6 +33,6 @@
     padding:0px;
   }
 
-  td.hovered_over:hover{
+  td.hovered_over:hover {
     background-image: url('/assets/images/hover.gif');
   }
