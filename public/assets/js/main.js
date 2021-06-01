@@ -409,7 +409,7 @@ socket.on('game_update', (payload) => {
             $("#elapsed").css("width", total + "%").attr("aria-valuenow", total);
             let timestring = "" + seconds;
             timestring = timestring.padStart(2, '0');
-            timestring = minutes + ":" +(timestring);
+            timestring = minutes + ":" + timestring;
             if (total < 100) {
                 $("#elapsed").html(timestring);
             }
