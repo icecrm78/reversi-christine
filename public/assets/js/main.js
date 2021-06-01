@@ -213,8 +213,8 @@ socket.on('player_disconnected', (payload) => {
         domElements.hide("fade",500);
     }    
 
-    let newHTML = '<p class=\'left_room_response\'>' + payload.username + ' left the ' + 
-    payload.room+ '. (There are '+ payload.count + ' users in this room)</p>';
+
+    let newHTML = '<p class=\'left_room_response\'>' + payload.username + ' left the chatroom. (There are '+ payload.count + ' users in this room)</p>';
     let newNode = $(newHTML);
     newNode.hide();
     $('#messages').prepend(newNode);
@@ -249,14 +249,14 @@ socket.on('send_chat_message_response', (payload) => {
 
 
 let old_board = [
-    ['?','?','?','?','?','?','?','?'],
-    ['?','?','?','?','?','?','?','?'],
-    ['?','?','?','?','?','?','?','?'],
-    ['?','?','?','?','?','?','?','?'],
-    ['?','?','?','?','?','?','?','?'],
-    ['?','?','?','?','?','?','?','?'],
-    ['?','?','?','?','?','?','?','?'],
-    ['?','?','?','?','?','?','?','?']
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' ']
 ];
 
 let my_color = "";
@@ -368,7 +368,6 @@ socket.on('game_update', (payload) => {
                     graphic = "error.gif";
                     altTag = "error";  
                 }
-
                 
                 const t = Date.now();
                 $('#' + row + '_' +column).html('<img class="img-fluid" src="assets/images/'+graphic+'?time='+t+'" alt="'+altTag+'" />');
@@ -395,8 +394,9 @@ socket.on('game_update', (payload) => {
             } 
         }
     }
+    
     clearInterval(interval_timer)
-    interval_time = setInterval(((last_time) => {
+    interval_timer = setInterval(((last_time) => {
         return (() => {
             let d = new Date();
             let elapsed_m = d.getTime() - last_time;
