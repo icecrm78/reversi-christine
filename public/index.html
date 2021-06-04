@@ -14,6 +14,7 @@
     <style>
       body {
         background-color: rgb(255, 247, 211);
+        color:rgb(74, 69, 89);
       }
     
     </style>
@@ -26,10 +27,10 @@
     <div class="container-fluid">
       <div class ="row m-3">
         <div class ="col text-center">
-            <a class="btn btn-success text-nowrap" href="about.html">About</a>
+          <button type="button" class="btn btn-outline-warning" data-mdb-ripple-color="dark" href="about.html">About</button>
         </div>
         <div class ="col text-center">
-          <a class="btn btn-success text-nowrap" href="https://en.wikipedia.org/wiki/Reversi">Rules</a>
+          <button type="button" class="btn btn-outline-warning" data-mdb-ripple-color="dark" href="https://en.wikipedia.org/wiki/Reversi">Rules</button>
         </div>
       </div>
         <div class ="row m-3">
@@ -45,7 +46,7 @@
                 placeholder="Choose your display name" 
                 aria-lable="Enter your display name for use while playing Reversi" 
                 aria-describedby="displayName"/>
-              <button type="submit" class="btn btn-primary text-nowrap" id="lobbyButton" 
+              <button type="submit" class="btn btn-warning text-nowrap" id="lobbyButton" 
               onclick="goToLobby()">Enter Lobby</button>
             </div>
           </div>

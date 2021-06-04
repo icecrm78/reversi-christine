@@ -29,7 +29,7 @@ socket.on('log',function(array) {
 });
 
 function makeInviteButton(socket_id) {
-    let newHTML= "<button type='button' class='btn btn-outline-primary'>Invite</button>";
+    let newHTML= "<button type='button' class='btn btn-outline-warning'>Invite</button>";
     let newNode = $(newHTML);
     newNode.click( () => {
         let payload = {
@@ -43,7 +43,7 @@ function makeInviteButton(socket_id) {
 }
 
 function makeInvitedButton(socket_id) {
-    let newHTML= "<button type='button' class='btn btn-primary'>Invited</button>";
+    let newHTML= "<button type='button' class='btn btn-warning'>Invited</button>";
     let newNode = $(newHTML);
     newNode.click( () => {
         let payload = {
@@ -57,7 +57,7 @@ function makeInvitedButton(socket_id) {
 }
 
 function makePlayButton(socket_id) {
-    let newHTML= "<button type='button' class='btn btn-success'>Play</button>";
+    let newHTML= "<button type='button' class='btn btn-info'>Play</button>";
     let newNode = $(newHTML);
     newNode.click( () => {
         let payload = {
@@ -71,7 +71,7 @@ function makePlayButton(socket_id) {
 }
 
 function makeStartGameButton() {
-    let newHTML= "<button type='button' class='btn btn-danger'>Starting Game</button>";
+    let newHTML= "<button type='button' class='btn btn-warning'>Starting Game</button>";
     let newNode = $(newHTML);
     return newNode;
 }
